@@ -1,7 +1,8 @@
-package baekjoon;
+package baekjoon.class4;
 
 import java.util.Scanner;
-
+// https://www.acmicpc.net/submit/9663
+// NQeen
 public class NQueen {
 
     public static void main(String[] args) {
