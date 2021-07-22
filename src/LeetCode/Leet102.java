@@ -1,7 +1,11 @@
 package LeetCode;
 
 import java.util.*;
-import java.util.stream.Collectors;
+
+/**
+ * https://leetcode.com/problems/binary-tree-level-order-traversal/
+ * 2021-07-20 Tue
+ */
 
 public class Leet102 {
     static TreeNode initCase() {
@@ -53,23 +57,4 @@ public class Leet102 {
     }
 }
 
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
 
