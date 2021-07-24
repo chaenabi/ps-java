@@ -13,7 +13,6 @@ import java.util.stream.Stream;
 
 public class Leet894 {
     // n must be odd
-
     public List<TreeNode> allPossibleFBT(int n) {
         if (n % 2 == 0) return Collections.emptyList();
         if (n == 1) return Stream.generate(TreeNode::new).limit(1).collect(toList());
