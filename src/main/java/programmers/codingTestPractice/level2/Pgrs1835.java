@@ -12,6 +12,7 @@ public class Pgrs1835 {
     private final int friendqt = friends.length;
 
     public int solution(int n, String[] data) {
+        if (n != data.length) return 0;
         boolean[] visited = new boolean[8];
         dfs("", visited, data);
         return answer;

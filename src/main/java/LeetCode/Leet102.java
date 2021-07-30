@@ -8,10 +8,10 @@ import java.util.*;
  */
 
 public class Leet102 {
-    static TreeNode initCase() {
-        TreeNode root = new TreeNode(3);
-                 root.left = new TreeNode(9, null, null);
-                 root.right = new TreeNode(20, new TreeNode(15), new TreeNode(7));
+    private Queue<TreeNode> initCase() {
+        TreeNode root1 = new TreeNode(3);
+                 root1.left = new TreeNode(9, null, null);
+                 root1.right = new TreeNode(20, new TreeNode(15), new TreeNode(7));
 
         TreeNode root2 = new TreeNode(1);
 
@@ -21,12 +21,24 @@ public class Leet102 {
                  root4.left = new TreeNode(2, new TreeNode(4), null);
                  root4.right = new TreeNode(3, null, new TreeNode(5));
 
-        return (root);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root1);
+        queue.add(root2);
+        queue.add(root3);
+        queue.add(root4);
+        return queue;
     }
 
     public static void main(String[] args) {
-        TreeNode root;
-        List<List<Integer>> result = new Leet102().levelOrder(root = initCase());
+        Queue<TreeNode> queue = new Leet102().initCase();
+        getTestCase(queue.poll());
+        getTestCase(queue.poll());
+        getTestCase(queue.poll());
+        getTestCase(queue.poll());
+    }
+
+    private static void getTestCase(TreeNode node) {
+        List<List<Integer>> result = new Leet102().levelOrder(node);
         System.out.println(result);
     }
 

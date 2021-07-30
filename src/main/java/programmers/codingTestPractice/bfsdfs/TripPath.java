@@ -27,9 +27,9 @@ public class TripPath {
         boolean[] visited = new boolean[len * len];
         Stack<String> stack = new Stack<>();
         List<String> list = new ArrayList<>();
-        List<String> orderedList = new ArrayList<>();
+        List<String> orderedList;
         stack.push(tickets[0][0]);
-        while(!stack.empty()) {
+        while (!stack.empty()) {
             String nowloc = stack.pop();
             answer.add(nowloc); // to return
             int row = tickets.length;

@@ -21,5 +21,6 @@ public class AplusB4 {
         }
         int[] arr = new int[10];
         int a = arr.length;
+        System.out.println(a);
     }
 }

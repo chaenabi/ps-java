@@ -19,9 +19,10 @@ public class MoreSpicy {
                                              .collect(toCollection(PriorityQueue::new));
 
         System.out.println(queue);
-        while (queue.peek() < K) {
+        while (queue.peek() != null && queue.peek() < K) {
             if (queue.size() == 1) return -1;
             int min = queue.poll();
+            @SuppressWarnings("all")
             int nextMin = queue.poll();
             int operation = min + (nextMin * 2);
             queue.offer(operation);

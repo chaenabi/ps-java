@@ -27,7 +27,7 @@ public class Leet99 {
     }
 
     public void recoverTree(TreeNode root) {
-        //printInorder(root);
+        printInorder(root);
         inorder(root);
 
         int temp = first.val;
@@ -35,7 +35,7 @@ public class Leet99 {
         second.val = temp;
 
         System.out.println();
-        //printInorder(root);
+        printInorder(root);
     }
 
     private void inorder(TreeNode node) {

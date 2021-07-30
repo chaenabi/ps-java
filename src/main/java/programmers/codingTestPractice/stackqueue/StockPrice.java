@@ -1,8 +1,5 @@
 package programmers.codingTestPractice.stackqueue;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 // 42584 주식가격
 public class StockPrice {
 
