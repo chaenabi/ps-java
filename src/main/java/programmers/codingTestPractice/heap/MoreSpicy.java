@@ -12,11 +12,14 @@ import static java.util.stream.Collectors.toCollection;
 public class MoreSpicy {
     public int solution(int[] scoville, int K) {
         int answer = 0;
+
+        for (int n : scoville) System.out.print(n + " ");
+        System.out.println();
         PriorityQueue<Integer> queue = Arrays.stream(scoville).boxed()
                                              .collect(toCollection(PriorityQueue::new));
 
         System.out.println(queue);
-        while (queue.peek() != null && queue.peek() >= K) {
+        while (queue.peek() < K) {
             if (queue.size() == 1) return -1;
             int min = queue.poll();
             int nextMin = queue.poll();
@@ -28,7 +31,7 @@ public class MoreSpicy {
     }
 
     public static void main(String[] args) {
-        int[] scoville = {1,2,3,9,10,12};
+        int[] scoville = {2,9, 3,1,10,12};
         int K = 7;
         System.out.println(new MoreSpicy().solution(scoville, K));
     }

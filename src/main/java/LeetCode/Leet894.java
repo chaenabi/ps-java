@@ -21,10 +21,10 @@ public class Leet894 {
         for (int i = 1; i < n; i += 2) {
             for (TreeNode l : allPossibleFBT(i))
                 for (TreeNode r : allPossibleFBT(n - i - 1)) {
-                    TreeNode root = new TreeNode(0);
-                    root.left = l;
-                    root.right = r;
-                    list.add(root);
+                    TreeNode node = new TreeNode(0);
+                    node.left = l;
+                    node.right = r;
+                    list.add(node);
                 }
         }
 

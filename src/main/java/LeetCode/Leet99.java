@@ -6,8 +6,7 @@ package LeetCode;
  */
 
 public class Leet99 {
-    TreeNode first, second;
-    TreeNode prev = new TreeNode(Integer.MIN_VALUE);
+
 
     private static TreeNode initCase() {
         TreeNode root = new TreeNode(1);
@@ -20,35 +19,29 @@ public class Leet99 {
         return (root);
     }
 
+    TreeNode first, second;
+    TreeNode prev = new TreeNode(Integer.MIN_VALUE);
+
     public static void main(String[] args) {
         new Leet99().recoverTree(initCase());
     }
 
     public void recoverTree(TreeNode root) {
-        printInorder(root);
-        preorder(root);
+        //printInorder(root);
+        inorder(root);
 
         int temp = first.val;
         first.val = second.val;
         second.val = temp;
 
         System.out.println();
-        printInorder(root);
-    }
-
-    private void preorder(TreeNode node) {
-        if (node == null) return;
-        if (first == null && prev.val > node.val) first = prev;
-        if (first != null && prev.val > node.val) second = node;
-        prev = node;
-        preorder(node.left);
-        preorder(node.right);
+        //printInorder(root);
     }
 
     private void inorder(TreeNode node) {
         if (node == null) return;
         inorder(node.left);
-
+        // 1 3 2 4 6 5 7 // 1 2 3 4 5 6 7 8
         if (first == null && prev.val > node.val) first = prev;
         if (first != null && prev.val > node.val) second = node;
         prev = node;
@@ -61,14 +54,5 @@ public class Leet99 {
         printInorder(node.left);
         System.out.print(node.val);
         printInorder(node.right);
-    }
-
-    private void postorder(TreeNode node) {
-        if (node == null) return;
-        postorder(node.left);
-        postorder(node.right);
-        if (first == null && prev.val > node.val) first = prev;
-        if (first != null && prev.val > node.val) second = node;
-        prev = node;
     }
 }
