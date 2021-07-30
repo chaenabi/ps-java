@@ -1,9 +1,5 @@
 package programmers.codingTestPractice;
 
-import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
-import static org.junit.jupiter.api.Assertions.assertSame;
-
 // complete search
 public class Pgrs1835 {
     // 1. 인덱스 방문 여부 체크 배열.

@@ -19,13 +19,13 @@ class Pgrs1835Test {
     @Test
     public void pubcase1() {
         result = pgrs1835.solution(2, new String[]{"N~F=0", "R~T>2"});
-        assertSame(result, 3648);
+        assertEquals(result, 3648);
     }
 
     @Test
     public void pubcase2() {
         result = pgrs1835.solution(2, new String[]{"M~C<2", "C~M>1"});
-        assertSame(result, 3648);
+        assertEquals(result, 0);
     }
 
 }
