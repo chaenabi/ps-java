@@ -1,4 +1,4 @@
-package programmers.codingTestPractice;
+package programmers.codingTestPractice.level2;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ class Pgrs1835Test {
     @BeforeEach
     public void initialize() {
         pgrs1835 = new Pgrs1835();
-        result = Integer.MAX_VALUE - 1;
+        result = Integer.MIN_VALUE + 1;
     }
 
     @Test
