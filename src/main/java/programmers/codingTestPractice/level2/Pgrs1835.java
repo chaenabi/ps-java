@@ -33,7 +33,6 @@ public class Pgrs1835 {
         }
     }
 
-    // 조건대로 섰는지 체크
     private boolean check(String names, String[] datas) {
         for (String data : datas) {
             int position1 = names.indexOf(data.charAt(0));

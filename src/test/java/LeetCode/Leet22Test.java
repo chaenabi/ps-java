@@ -15,7 +15,7 @@ public class Leet22Test {
         leet22 = new Leet22();
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void pubcase1() {
         assertEquals(List.of("((()))","(()())","(())()","()(())","()()()"), leet22.generateParenthesis( 3));
     }

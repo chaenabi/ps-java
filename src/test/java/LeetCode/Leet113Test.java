@@ -39,4 +39,12 @@ class Leet113Test {
         TreeNode root = new TreeNode(1, new TreeNode(2), null);
         assertEquals(Collections.emptyList(), leet113.pathSum(root,0));
     }
+
+    @Test
+    public void mcase1() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.left.right = new TreeNode(3);
+        assertEquals(List.of(List.of(1, 2, 3)), leet113.pathSum(root,6));
+    }
 }
