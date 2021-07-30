@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class Prgs60057Test {
 
     @Test
-    public void pubcase() {
+    public void pubcases() {
         Prgs60057 prgs60057 = new Prgs60057();
         assertEquals(7, prgs60057.solution("aabbaccc"));
         assertEquals(9, prgs60057.solution("ababcdcdababcdcd"));

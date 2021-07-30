@@ -26,7 +26,7 @@ public class Prgs60057 {
     private String compression(String str, int i) {
 
         int count = 1;
-        String compression = "";
+        StringBuilder compression = new StringBuilder();
         String pattern = "";
 
         for (int j = 0; j <= str.length() + i; j += i) {
@@ -45,15 +45,15 @@ public class Prgs60057 {
                 if (nowStr.equals(pattern)) {
                     count++;
                 } else if (count >= 2) {
-                    compression += count + pattern;
+                    compression.append(count).append(pattern);
                     count = 1;
                 } else {
-                    compression += pattern;
+                    compression.append(pattern);
                 }
             }
             pattern = nowStr;
         }
 
-        return compression;
+        return compression.toString();
     }
 }
