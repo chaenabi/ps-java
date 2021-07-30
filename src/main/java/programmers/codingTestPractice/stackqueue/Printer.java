@@ -25,7 +25,7 @@ public class Printer {
                 if(j == i) continue; // 기준점 자신은 비교하지 않는다.
                 if(priorities[i] < priorities[j]) { // 더 큰 값이 있으면...
                     list.add(priorities[i]);
-                    list.remove(list.indexOf(j));
+                    list.remove((Integer) j);
                     list.add(0, priorities[j]);
                 }
             }

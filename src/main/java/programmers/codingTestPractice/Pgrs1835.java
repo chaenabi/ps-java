@@ -1,11 +1,15 @@
 package programmers.codingTestPractice;
 
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
 // complete search
 public class Pgrs1835 {
     // 1. 인덱스 방문 여부 체크 배열.
-    static boolean check[] = new boolean[8];
+    static boolean[] check = new boolean[8];
     // 2. 카카오 프렌즈 0~7인덱스까지 각 알파벳을 매칭.
-    static char friends[] = {'A','C','F','J','M','N','R','T'};
+    static char[] friends = {'A','C','F','J','M','N','R','T'};
 
     static int answer;
 
@@ -59,7 +63,7 @@ public class Pgrs1835 {
             // 11. 방문처리 후,
             check[i] = true;
             // 12. 프렌즈에 해당하는 문자를 StringBuilder 객체에 붙인다.
-            sb.append(String.valueOf(friends[i]));
+            sb.append(friends[i]);
             // 13. 인덱스 증가 및 StringBuilder와 함께 재귀호출.
             dfs(idx+1,sb,data);
             // 14. 방문처리 해제.
@@ -80,11 +84,3 @@ public class Pgrs1835 {
         return answer;
     }
 }
-
-class Pgrs1835Test {
-
-    public void test() {
-
-    }
-}
-
