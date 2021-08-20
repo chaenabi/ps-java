@@ -32,7 +32,6 @@ public class Leet103 {
             answer.add(list);
             reverse = !reverse;
         }
-        System.out.println(answer);
         return answer;
     }
 }

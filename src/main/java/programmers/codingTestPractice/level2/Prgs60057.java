@@ -26,34 +26,34 @@ public class Prgs60057 {
     private String compression(String str, int i) {
 
         int count = 1;
-        StringBuilder compression = new StringBuilder();
+        StringBuilder comp = new StringBuilder();
         String pattern = "";
-
-        for (int j = 0; j <= str.length() + i; j += i) {
+        int strlen = str.length();
+        for (int j = 0; j <= (strlen + i); j += i) {
 
             String nowStr;
 
-            if (j >= str.length()) {
+            if (j >= strlen) {
                 nowStr = "";
-            } else if (str.length() < j + i) {
+            } else if (strlen < j + i) {
                 nowStr = str.substring(j);
             } else {
                 nowStr = str.substring(j, j + i);
             }
 
-            if (j != 0) {
+            if (j > 0) {
                 if (nowStr.equals(pattern)) {
                     count++;
                 } else if (count >= 2) {
-                    compression.append(count).append(pattern);
+                    comp.append(count).append(pattern);
                     count = 1;
                 } else {
-                    compression.append(pattern);
+                    comp.append(pattern);
                 }
             }
             pattern = nowStr;
         }
 
-        return compression.toString();
+        return comp.toString();
     }
 }
