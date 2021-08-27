@@ -11,6 +11,7 @@ public class Prgs42888 {
     public String[] solution(String[] record) {
         Map<String, String> idnick = new HashMap<>();
         List<String> result = new ArrayList<>();
+
         for (String message : record) {
             String[] msg = message.split(" ");
             if (!msg[0].equals("Leave")) {

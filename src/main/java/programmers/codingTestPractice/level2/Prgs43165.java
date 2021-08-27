@@ -22,15 +22,6 @@ public class Prgs43165 {
         }
     //    sum += numbers[idx];
         dfs(numbers, target, idx + 1, sum + numbers[idx]);
-        /*
-             dfs(numbers, target, 0, 0)
-             dfs(numbers, target, 1, 1)
-             dfs(numbers, target, 2, 2)
-             dfs(numbers, target, 3, 3)
-             dfs(numbers, target, 4, 4)
-             dfs(numbers, target, 4, 3)
-         */
-
    //     sum -= numbers[idx];
    //     sum -= numbers[idx];
         dfs(numbers, target, idx + 1, sum - numbers[idx]);

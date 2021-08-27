@@ -9,7 +9,7 @@ import java.util.Stack;
  * 2021-08-17
  */
 public class Pgrs12973 {
-
+    // 효율성 테스트 실패
     public int solution(String s) {
         StringBuilder sb = new StringBuilder(s);
         int answer = 0;
@@ -27,21 +27,17 @@ public class Pgrs12973 {
         return answer;
     }
 
+    // 성공
     public int solution2(String s) {
-        String[] arr = s.split("");
-        Stack<String> stack = new Stack<>();
+        Stack<Character> stack = new Stack<>();
         int answer = 0;
 
-        if (arr.length > 1) stack.push(arr[0]);
-
-        for (int i = 1; !stack.empty(); i++) {
-            if (i == arr.length - 1) break;
-
-            if (stack.peek().equals(arr[i])) {
+        for (int i = 0; i < s.length(); i++) {
+            if (!stack.empty() && stack.peek() == s.charAt(i)) {
                 stack.pop();
             }
             else {
-                stack.push(arr[i]);
+                stack.push(s.charAt(i));
             }
         }
         if (stack.size() < 1) answer = 1;
