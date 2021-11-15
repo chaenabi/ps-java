@@ -7,15 +7,6 @@ import java.util.*;
  * https://programmers.co.kr/learn/courses/30/lessons/1829
  * 2021-08-24 Tue
  */
-class Point {
-    public int x;
-    public int y;
-
-    public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-}
 
 public class Prgs1829 {
     boolean[][] visited;
@@ -58,8 +49,8 @@ public class Prgs1829 {
         while (!queue.isEmpty()) {
             Point now = queue.poll();
             for (int k = 0; k < 4; k++) {
-                int nx = now.x + dx[k];
-                int ny = now.y + dy[k];
+                int nx = now.w + dx[k];
+                int ny = now.h + dy[k];
 
                 if (0 <= nx && nx < max_y && 0 <= ny && ny < max_x) {
                     if (!visited[nx][ny] && picture[nx][ny] == picture[i][j]) {
