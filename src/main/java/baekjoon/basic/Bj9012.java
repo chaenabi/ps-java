@@ -38,11 +38,10 @@ public class Bj9012 {
 
             // 메인로직: ( 이면, 스택에 넣고, ) 스택에서 pop.
             // 스택이 비어있는데 ) 이면 NO 출력
-            for (int i = 0; i < chars.length; i++) {
-                if (chars[i] == '(') {
-                    openPth.push(chars[i]);
-                }
-                else {
+            for (char aChar : chars) {
+                if (aChar == '(') {
+                    openPth.push(aChar);
+                } else {
                     if (!openPth.empty()) openPth.pop();
                     else {
                         flag = true;
