@@ -16,7 +16,6 @@ public class Bj9093 {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Queue<String> tokens = new LinkedList<>();
-
         int count = Integer.parseInt(br.readLine());
 
         while (count-- > 0) {
@@ -28,7 +27,6 @@ public class Bj9093 {
             String[] strings = tokens.poll().split(" "); // [I, am, happy, today]
             List<String> list = new ArrayList<>();
             int size = strings.length; // total strings.len (4)
-
             for (int i = 0; i < size; i++) {
                 if (strings[i].length() == 1) {
                     list.add(strings[i]);
