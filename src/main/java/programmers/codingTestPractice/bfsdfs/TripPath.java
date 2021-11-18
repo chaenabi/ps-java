@@ -14,7 +14,7 @@ import static java.util.stream.Collectors.toUnmodifiableList;
 public class TripPath {
 
     public static void main(String[] args) {
-        String[] result = new TripPath().solution(new String[][] {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL","SFO"}});
+        String[] result = new TripPath().solution(new String[][] {{"ICN", "B"}, {"ICN", "B"}, {"A", "B"}});
         for (String s : result) {
             if (s != null)
                 System.out.print(s + " ");
@@ -29,6 +29,7 @@ public class TripPath {
         List<String> list = new ArrayList<>();
         List<String> orderedList;
         stack.push(tickets[0][0]);
+
         while (!stack.empty()) {
             String nowloc = stack.pop();
             answer.add(nowloc); // to return
@@ -36,7 +37,6 @@ public class TripPath {
             // find all available to visit
             for(int i = 0; i < row; i++) {
                 for(int j = 0; j < tickets[i].length; j++) {
-
                     if(nowloc.equals(tickets[i][0])) {
                         if(!visited[i]) {
                             list.add(tickets[i][1]);
