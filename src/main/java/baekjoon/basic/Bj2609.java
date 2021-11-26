@@ -21,8 +21,8 @@ public class Bj2609 {
 
         int result = gcd(a, b);
 
-        bw.write(result + "\n");
-        bw.write(((a * b) / result) + "");
+        bw.write(result + "\n"); // 최대공약수
+        bw.write(((a * b) / result) + ""); // 최소공배수
 
         bw.flush();
         bw.close();
