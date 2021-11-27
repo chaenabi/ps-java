@@ -31,7 +31,7 @@ public class Leet36 {
             for (j = 0; j < 9; j++) {
                 char val = board[j][i];
                 if (val != '.') {
-                    if (!hashSet.add(board[j][i])) return false;
+                    if (!hashSet.add(val)) return false;
                 }
             }
             hashSet.clear();
@@ -44,7 +44,7 @@ public class Leet36 {
             for (j = 0; j < 3; j++) {
                 char val = board[i][j];
                 if (val != '.') {
-                    if (!hashSet.add(board[i][j])) return false;
+                    if (!hashSet.add(val)) return false;
                 }
             }
         }
@@ -54,7 +54,7 @@ public class Leet36 {
             for (j = 3; j < 6; j++) {
                 char val = board[i][j];
                 if (val != '.') {
-                    if (!hashSet.add(board[i][j])) return false;
+                    if (!hashSet.add(val)) return false;
                 }
             }
         }
@@ -64,7 +64,7 @@ public class Leet36 {
             for (j = 6; j < 9; j++) {
                 char val = board[i][j];
                 if (val != '.') {
-                    if (!hashSet.add(board[i][j])) return false;
+                    if (!hashSet.add(val)) return false;
                 }
             }
         }
@@ -75,7 +75,7 @@ public class Leet36 {
             for (j = 0; j < 3; j++) {
                 char val = board[i][j];
                 if (val != '.') {
-                    if (!hashSet.add(board[i][j])) return false;
+                    if (!hashSet.add(val)) return false;
                 }
             }
         }
@@ -85,7 +85,7 @@ public class Leet36 {
             for (j = 3; j < 6; j++) {
                 char val = board[i][j];
                 if (val != '.') {
-                    if (!hashSet.add(board[i][j])) return false;
+                    if (!hashSet.add(val)) return false;
                 }
             }
         }
@@ -95,7 +95,7 @@ public class Leet36 {
             for (j = 6; j < 9; j++) {
                 char val = board[i][j];
                 if (val != '.') {
-                    if (!hashSet.add(board[i][j])) return false;
+                    if (!hashSet.add(val)) return false;
                 }
             }
         }
@@ -106,7 +106,7 @@ public class Leet36 {
             for (j = 0; j < 3; j++) {
                 char val = board[i][j];
                 if (val != '.') {
-                    if (!hashSet.add(board[i][j])) return false;
+                    if (!hashSet.add(val)) return false;
                 }
             }
         }
@@ -116,7 +116,7 @@ public class Leet36 {
             for (j = 3; j < 6; j++) {
                 char val = board[i][j];
                 if (val != '.') {
-                    if (!hashSet.add(board[i][j])) return false;
+                    if (!hashSet.add(val)) return false;
                 }
             }
         }
@@ -126,7 +126,7 @@ public class Leet36 {
             for (j = 6; j < 9; j++) {
                 char val = board[i][j];
                 if (val != '.') {
-                    if (!hashSet.add(board[i][j])) return false;
+                    if (!hashSet.add(val)) return false;
                 }
             }
         }
