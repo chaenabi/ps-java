@@ -53,7 +53,6 @@ public class Bj2573 {
                 return;
             }
 
-
             for (int y = 0; y < N; y++) { // 중간 출력
                 for (int x = 0; x < M; x++) {
                     System.out.print(map[y][x] + " ");
@@ -62,7 +61,6 @@ public class Bj2573 {
             }
 
             System.out.println("=================");
-
 
             long count = Arrays.stream(map)
                     .flatMapToInt(e -> Arrays.stream(e)
