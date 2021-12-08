@@ -14,6 +14,10 @@ public class Bj2573 {
     static int[] dy = { -1, 1, 0, 0 };
     static boolean[][] visited;
     static int year = 0;
+<<<<<<< HEAD
+=======
+    static boolean seperated = false;
+>>>>>>> 634f92b032251488ab15cf1cb3d1ee4de91bc5d1
 
     public static void main(String[] args) throws IOException {
         solutionBackup();
@@ -52,7 +56,10 @@ public class Bj2573 {
                 return;
             }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 634f92b032251488ab15cf1cb3d1ee4de91bc5d1
             for (int y = 0; y < N; y++) { // 중간 출력
                 for (int x = 0; x < M; x++) {
                     System.out.print(map[y][x] + " ");
@@ -62,7 +69,10 @@ public class Bj2573 {
 
             System.out.println("=================");
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 634f92b032251488ab15cf1cb3d1ee4de91bc5d1
             long count = Arrays.stream(map)
                     .flatMapToInt(e -> Arrays.stream(e)
                             .filter(i -> i > 0)).count();
@@ -138,6 +148,11 @@ public class Bj2573 {
     }
 
     private static void bfs(int[][] map, int y, int x, int max_y, int max_x) {
+<<<<<<< HEAD
+=======
+        if (seperated) return;
+
+>>>>>>> 634f92b032251488ab15cf1cb3d1ee4de91bc5d1
         Queue<Pair> queue = new LinkedList<>();
         visited[y][x] = true;
         queue.offer(new Pair(y, x));
@@ -177,6 +192,7 @@ public class Bj2573 {
 
 7 9
 0 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 0 1 1 1 1 1 1 1 0
 0 0 1 0 1 0 1 0 0
 0 0 1 2 1 2 1 0 0
@@ -185,4 +201,12 @@ public class Bj2573 {
 0 0 0 0 0 0 0 0 0
 
 
+=======
+0 1 0 1 0 1 0 1 0
+0 0 1 0 1 0 1 0 0
+0 0 1 2 1 2 1 0 0
+0 1 0 1 0 1 0 1 0
+0 0 1 0 1 0 1 0 0
+0 0 0 0 0 0 0 0 0
+>>>>>>> 634f92b032251488ab15cf1cb3d1ee4de91bc5d1
  */
