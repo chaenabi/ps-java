@@ -14,7 +14,6 @@ public class Bj2573 {
     static int[] dy = { -1, 1, 0, 0 };
     static boolean[][] visited;
     static int year = 0;
-    static boolean seperated = false;
 
     public static void main(String[] args) throws IOException {
         solutionBackup();
@@ -33,17 +32,6 @@ public class Bj2573 {
             map[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         }
         br.close();
-
-        long count = Arrays.stream(map)
-                .flatMapToInt(e -> Arrays.stream(e)
-                        .filter(i -> i > 0)).count();
-
-        if (count == 0 && year == 0) { // 처음부터 빙하가 없었다면
-            bw.write(year + "");
-            bw.flush();
-            bw.close();
-            return;
-        }
 
         boolean leftIceburg = true;
         int secondRun = 0;
@@ -73,6 +61,18 @@ public class Bj2573 {
             }
 
             System.out.println("=================");
+
+
+            long count = Arrays.stream(map)
+                    .flatMapToInt(e -> Arrays.stream(e)
+                            .filter(i -> i > 0)).count();
+
+            if (count == 0 && year == 0) { // 처음부터 빙하가 없었다면
+                bw.write(year + "");
+                bw.flush();
+                bw.close();
+                return;
+            }
 
             if (count > 0 && secondRun == 1) {
                 ++year;
@@ -138,8 +138,6 @@ public class Bj2573 {
     }
 
     private static void bfs(int[][] map, int y, int x, int max_y, int max_x) {
-        if (seperated) return;
-
         Queue<Pair> queue = new LinkedList<>();
         visited[y][x] = true;
         queue.offer(new Pair(y, x));
@@ -179,10 +177,12 @@ public class Bj2573 {
 
 7 9
 0 0 0 0 0 0 0 0 0
-0 1 0 1 0 1 0 1 0
+0 1 1 1 1 1 1 1 0
 0 0 1 0 1 0 1 0 0
 0 0 1 2 1 2 1 0 0
-0 1 0 1 0 1 0 1 0
+0 1 1 1 1 1 1 1 0
 0 0 1 0 1 0 1 0 0
 0 0 0 0 0 0 0 0 0
+
+
  */

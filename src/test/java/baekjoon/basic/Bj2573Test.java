@@ -1,13 +1,19 @@
 package baekjoon.basic;
 
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class Bj2573Test {
 
-    Bj2573 bj2573 = new Bj2573();
+    Bj2573 bj2573;
+
+    @BeforeEach
+    public void setup() {
+        bj2573 = new Bj2573();
+        System.out.println(bj2573);
+    }
 
     @Test
     public void pubCase1() {
@@ -18,19 +24,24 @@ class Bj2573Test {
                 {0, 7, 6, 2, 4, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0}
         };
-        assertEquals(bj2573.solution(5, 7, map), 2);
+
+        assertThat(bj2573.solution(5, 7, map)).isEqualTo(2);
     }
 
     @Test
     public void hidCase1() {
         int[][] map = {
                 {0, 0, 0, 0, 0, 0, 0},
-                {0, 9, 8, 9, 8, 9, 0},
-                {0, 9, 8, 9, 8, 9, 0},
-                {0, 9, 8, 9, 8, 9, 0},
-                {0, 0, 0, 0, 0, 0, 0}
+                {0, 1, 1, 0, 1, 1, 0},
+                {0, 1, 9, 1, 9, 1, 0},
+                {0, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 0},
+                {0, 0, 1, 1, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
         };
-        assertEquals(bj2573.solution(5, 7, map), 2);
+        assertThat(bj2573.solution(7, 7, map)).isEqualTo(2);
     }
+
+
 
 }
