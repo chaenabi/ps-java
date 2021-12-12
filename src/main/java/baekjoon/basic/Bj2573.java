@@ -52,15 +52,6 @@ public class Bj2573 {
                 return;
             }
 
-            for (int y = 0; y < N; y++) { // 중간 출력
-                for (int x = 0; x < M; x++) {
-                    System.out.print(map[y][x] + " ");
-                }
-                System.out.println();
-            }
-
-            System.out.println("=================");
-
             long count = Arrays.stream(map)
                     .flatMapToInt(e -> Arrays.stream(e)
                             .filter(i -> i > 0)).count();
@@ -74,12 +65,12 @@ public class Bj2573 {
 
             if (count > 0 && secondRun == 1) {
                 ++year;
-                for (int i = 0; i < N; i++) {
-                    Arrays.fill(visited[i], false);
-                }
             }
             else leftIceburg = false;
             secondRun = 0;
+            for (int i = 0; i < N; i++) {
+                Arrays.fill(visited[i], false);
+            }
         }
         bw.write(0 + "");
         bw.flush();
@@ -125,11 +116,11 @@ public class Bj2573 {
 
             if (count > 0 && secondRun == 1) {
                 ++year;
-                for (int i = 0; i < N; i++) {
-                    Arrays.fill(visited[i], false);
-                }
             }
             else leftIceburg = false;
+
+            visited = new boolean[N][M];
+
             secondRun = 0;
         }
         return 0;
@@ -151,7 +142,7 @@ public class Bj2573 {
                     if (!visited[yy][xx] && map[yy][xx] == 0) {
                         if (map[p.y][p.x] > 0) map[p.y][p.x] = map[p.y][p.x] - 1;
                     }
-                    else if (!visited[yy][xx] && map[yy][xx] > 0) {
+                    if (!visited[yy][xx] && map[yy][xx] > 0) {
                         visited[yy][xx] = true;
                         queue.offer(new Pair(yy, xx));
                     }
@@ -182,10 +173,10 @@ public class Bj2573 {
 0 0 1 0 1 0 1 0 0
 0 0 0 0 0 0 0 0 0
 
-0 1 0 1 0 1 0 1 0
-0 0 1 0 1 0 1 0 0
-0 0 1 2 1 2 1 0 0
-0 1 0 1 0 1 0 1 0
-0 0 1 0 1 0 1 0 0
-0 0 0 0 0 0 0 0 0
+5 5
+0 0 0 0 0
+0 0 0 0 0
+0 4 1 3 0
+0 0 0 0 0
+0 0 0 0 0
  */
