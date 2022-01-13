@@ -21,6 +21,7 @@ public class Leet102 {
                  root4.left = new TreeNode(2, new TreeNode(4), null);
                  root4.right = new TreeNode(3, null, new TreeNode(5));
 
+
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root1);
         queue.add(root2);
