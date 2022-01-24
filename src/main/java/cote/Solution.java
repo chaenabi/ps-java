@@ -1,59 +1,64 @@
 package cote;
 
 import java.util.*;
+/*
+    1. 스트링 s가 입력값. s는 알파벳 대소문자로만 되어있음
+    2. 가장 많이 쓰인 알파벳을 찾아서 해당 알파벳 return
+    3. 대소문자는 같음
+    4. 가장 많이 쓰인 알파벳이 하나이면 소문자로 반환
+    5. 가장 많이 쓰인 알파벳이 2개 이상이면 알파벳 순서대로 스트링을 이루어 반환
 
+
+ */
 public class Solution {
 
-    static int answer = 0;
+    public String solution(String s) {
+        if (s.equals("")) return "";
 
-    public int solution(String[] drum) {
+        Map<Character, Integer> map = new HashMap<>();
 
-        int drumLen = drum.length;
-        String[][] arr = new String[drumLen][drumLen];
-
-        for (int i = 0; i < drumLen; i++) {
-            arr[i] = drum[i].split("");
+        for (char al = 97; al <= 122; al++) {
+            map.put(al, 0);
         }
 
-        for (int y = 0; y < drumLen; y++) {
-            bfs(arr, y, drumLen);
-        }
-
-        return answer;
-    }
-
-    private void bfs(String[][] arr, int y, int max) {
-        Queue<Point> queue = new LinkedList<>();
-        queue.offer(new Point(0, y)); // x: 가로, y: 세로
-        int star = 0;
-
-        while (!queue.isEmpty()) {
-            Point p = queue.poll();
-
-            if (0 <= p.x && p.x < max && 0 <= p.y && p.y < max) {
-                if (star > 1) break;
-
-                switch (arr[p.x][p.y]) {
-                    case ">":
-                        queue.offer(new Point(p.x, p.y + 1));
-                        break;
-                    case "#":
-                        queue.offer(new Point(p.x + 1, p.y));
-                        break;
-                    case "<":
-                        queue.offer(new Point(p.x, p.y - 1));
-                        break;
-                    case "*":
-                        queue.offer(new Point(p.x + 1, p.y));
-                        star++;
-                }
-            }
-            if (p.x == max) {
-                answer++;
-                break;
+        for (char c : s.toCharArray()) {
+            char upper = (char) (c + 32);
+            if (map.containsKey(c) || map.containsKey(upper)) {
+                int count = map.getOrDefault(c, map.get(upper));
+                String clower = (c + "").toLowerCase();
+                map.put(clower.charAt(0), count + 1);
             }
         }
+
+        Set<Integer> set = new HashSet<>();
+
+        String result = "";
+        int max = 0;
+
+        for (Map.Entry<Character, Integer> e : map.entrySet()) {
+            System.out.println(e);
+        }
+
+        for (Map.Entry<Character, Integer> cnt : map.entrySet()) {
+            set.add(cnt.getValue());
+            if (max < cnt.getValue()) max = cnt.getValue();
+        }
+
+
+        for (Map.Entry<Character, Integer> cnt : map.entrySet()) {
+            if (cnt.getValue() == max) {
+                result += cnt.getKey() + "";
+            }
+        }
+
+        return result.toLowerCase();
     }
+
+    public static void main(String[] args) {
+        System.out.println(new Solution().solution("BbA"));
+
+    }
+
 
     static class Point {
         public int x;
