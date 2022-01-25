@@ -28,6 +28,8 @@ public class Solution2 {
             }
         }
 
+        set.forEach(System.out::println);
+
         // 부분 문자열 중에서 중복이 발생하는 문자가 존재하면 제거해버림
         for (String part : set) {
             boolean isDup = false;

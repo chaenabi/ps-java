@@ -1,6 +1,6 @@
 package cote;
 
-import java.util.Arrays;
+import java.util.*;
 
 /*
     N명의 학생이 시험을 보았습니다.
@@ -27,7 +27,63 @@ public class Solution3 {
         return answer;
     }
 
+    private int[] solution2(int[] grade) {
+        Map<Integer, LinkedList<Integer>> map = new HashMap<>();
+        for (int i = 0; i < grade.length; i++) {
+            int currentPoint = grade[i];
+            LinkedList<Integer> list = map.getOrDefault(currentPoint, new LinkedList<>());
+            list.add(i);
+            map.put(currentPoint, list);
+        }
+        Integer[] keyArrays = map.keySet().toArray(Integer[]::new);
+        Arrays.sort(keyArrays, Collections.reverseOrder());
+        int currentGrade = 1;
+        int gradeCount = 0;
+        for (Integer i : keyArrays) {
+            LinkedList<Integer> currentList = map.get(i);
+            for (Integer j : currentList) {
+                grade[j] = currentGrade;
+                gradeCount++;
+            }
+            currentGrade += gradeCount;
+            gradeCount = 0;
+        }
+        return grade;
+    }
+
+    private int[] solution3(int[] grade) {
+
+        int[] answer = new int[grade.length];
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < grade.length; i++) { //점수별 몇명 ?
+            if (map.get(grade[i]) == null) {
+                map.put(grade[i], 1);
+            } else {
+                map.put(grade[i], map.get(grade[i]) + 1);
+            }
+        }
+        //해당 점수일 경우 나보다 등수 높은사람 몇명 ?
+        List<Integer> keyset = new ArrayList<>(map.keySet());
+        keyset.sort(Collections.reverseOrder());
+        Map<Integer, Integer> map2 = new HashMap<>();
+
+        int n = 1;
+        for (int i : keyset) {
+            map2.put(i, n);
+            n += map.get(i);
+        }
+
+        for (int i = 0; i < grade.length; i++) {
+            int myScore = grade[i]; // 내랭크
+            answer[i] = map2.get(myScore);
+        }
+        return answer;
+    }
+
     public static void main(String[] args) {
         System.out.println(Arrays.toString(new Solution3().solution(new int[]{2, 2, 1})));
+        System.out.println(Arrays.toString(new Solution3().solution2(new int[]{2, 2, 1})));
     }
 }

@@ -2,13 +2,13 @@ package cote;
 
 import java.util.*;
 /*
+    가장 많이 쓰인 알파벳
+
     1. 스트링 s가 입력값. s는 알파벳 대소문자로만 되어있음
     2. 가장 많이 쓰인 알파벳을 찾아서 해당 알파벳 return
     3. 대소문자는 같음
     4. 가장 많이 쓰인 알파벳이 하나이면 소문자로 반환
     5. 가장 많이 쓰인 알파벳이 2개 이상이면 알파벳 순서대로 스트링을 이루어 반환
-
-
  */
 public class Solution {
 
@@ -57,16 +57,5 @@ public class Solution {
     public static void main(String[] args) {
         System.out.println(new Solution().solution("BbA"));
 
-    }
-
-
-    static class Point {
-        public int x;
-        public int y;
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
     }
 }
