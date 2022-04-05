@@ -1,4 +1,4 @@
-package jobs;
+package jobs.part2;
 
 import java.util.Scanner;
 
@@ -55,17 +55,18 @@ public class NumerPyramid {
                System.out.print(" ");
            }
            for (int j = 0; j < 2 * i + 1; j++) {
-               if (even) {
-                   if (start >= 10) start = 1;
-                   System.out.print(start++);
-               } else {
+               if (!even) {
                    if (once) {
                        start += 2 * i + 1;
                        once = false;
                    }
-                   if (start >= 10) start %= 10;
+                   if (start >= 10) start = 1;
                    if (start <= 0) start = 9;
                    System.out.print(start--);
+               } else {
+                   if (start >= 10) start = 1;
+                   if (start <= 0) start = 9;
+                   System.out.print(start++);
                }
            }
            even = !even;

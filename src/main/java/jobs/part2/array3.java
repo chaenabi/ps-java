@@ -1,4 +1,4 @@
-package jobs;
+package jobs.part2;
 
 import org.junit.jupiter.api.Test;
 
