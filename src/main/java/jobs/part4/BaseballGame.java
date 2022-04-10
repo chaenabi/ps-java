@@ -20,11 +20,39 @@ public class BaseballGame {
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         int n = Integer.parseInt(br.readLine());
         int[][] input = new int[n][3];
-
+        int result = 0;
         for (int i = 0; i < n; i++) input[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         br.close();
 
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 1; j <= 9; j++) {
+                for (int k = 1; k <= 9; k++) {
+                    if (i == j || j == k || i == k) continue;
+                    boolean match = false;
 
+                    for (int m = 0; m < n; m++) {
+
+                        int h = input[m][0] / 100;
+                        int t = (input[m][0] / 10) % 10;
+                        int o = input[m][0] % 10;
+
+                        int strike = 0, ball = 0;
+
+                        if (h == i) strike++;
+                        if (t == j) strike++;
+                        if (o == k) strike++;
+                        if (h == j || h == k) ball++;
+                        if (t == i || t == k) ball++;
+                        if (o == i || o == j) ball++;
+
+                        if (input[m][1] != strike || input[m][2] != ball) match = true;
+                    }
+                    if (!match) result++;
+                }
+            }
+        }
+
+        System.out.println(result);
 
     }
 }

@@ -72,8 +72,6 @@ public class ClassPresident {
         }
         int max = 0, result = 0;
         for (int i = 0; i < n; i++) {
-            // i 번째 학생과 겹치는 학생수 구하기
-            // i가 0이라면 1~5번째 학생과 같은 반이었는지 비교
             int count = 0;
             for (int j = 0; j < n; j++) {
                 if (i == j) continue;

@@ -1,4 +1,4 @@
-package jobs.part2;
+package jobs.test.firstweek;
 
 import java.util.Scanner;
 
@@ -40,38 +40,50 @@ N과 시작 숫자 S가 주어지면 숫자 피라미드를 만드는 프로그�
  3456789
 987654321
  */
-public class NumerPyramid {
+public class NumberPyramid {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int floor = sc.nextInt(), start = sc.nextInt() - 1;
+        int floor = sc.nextInt(), start = sc.nextInt();
+        int space = floor - 1, number = 1;
+        int pref = start, prel = 0;
         sc.close();
-        boolean even = false;
-        for (int i = 0; i < floor; i++) {
-            boolean once = true;
-
-           for (int j = floor - 1; j > i; j--) {
+        for (int i = 1; i <= floor; i++) {
+           for (int j = 0; j < space; j++) {
                System.out.print(" ");
            }
-           for (int j = 0; j < 2 * i + 1; j++) {
-               if (!even) {
-                   if (once) {
-                       start += 2 * i + 1;
-                       once = false;
-                   }
-                   if (start >= 10) start = 1;
-                   if (start <= 0) start = 9;
-                   System.out.print(start--);
-               } else {
-                   if (start >= 10) start = 1;
-                   if (start <= 0) start = 9;
-                   System.out.print(start++);
+           space--;
+
+           if (i % 2 == 0) {
+               int curf = pref + 1;
+               if (curf >= 10) curf = 1;
+               for (int j = 0; j < number; j++) {
+                   System.out.print(curf);
+                   prel = curf;
+                   ++curf;
+                   if (curf >= 10) curf = 1;
                }
            }
-           even = !even;
-           System.out.println();
+           else {
+               int curf = prel;
+               if (i == 1) curf = start;
+               else {
+                   for (int j = 0; j < number; j++) {
+                       ++curf;
+                       if (curf >= 10) curf = 1;
+                   }
+               }
+               pref = curf;
 
+               for (int j = 0; j < number; j++) {
+                   System.out.print(curf);
+                   --curf;
+                   if (curf <= 0) curf = 9;
+               }
+           }
+           System.out.println();
+           number = 2 * i + 1;
         }
     }
 }
