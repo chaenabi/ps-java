@@ -24,32 +24,32 @@ public class Rook {
 
         label: for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (arr[i][j] == 2) {
-                    int up = j, down = j, left = j, right = j;
+                if (arr[i][j] == 1) {
+                    int up = i, down = i, left = j, right = j;
                     while (up >= 0) {
-                        if (arr[i][up] == 1) {
+                        if (arr[up][j] == 2) {
                             isPossible = true;
                             break label;
                         }
-                        if (arr[i][up] == 3) {
+                        if (arr[up][j] == 3) {
                             break;
                         }
                         --up;
                     }
 
                     while (down <= 7) {
-                        if (arr[i][down] == 1) {
+                        if (arr[down][j] == 2) {
                             isPossible = true;
                             break label;
                         }
-                        if (arr[i][down] == 3) {
+                        if (arr[down][j] == 3) {
                             break;
                         }
                         ++down;
                     }
 
-                    while (left <= 0) {
-                        if (arr[i][left] == 1) {
+                    while (left >= 0) {
+                        if (arr[i][left] == 2) {
                             isPossible = true;
                             break label;
                         }
@@ -60,7 +60,7 @@ public class Rook {
                     }
 
                     while (right <= 7) {
-                        if (arr[i][right] == 1) {
+                        if (arr[i][right] == 2) {
                             isPossible = true;
                             break label;
                         }
