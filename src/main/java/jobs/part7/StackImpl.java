@@ -36,35 +36,22 @@ public class StackImpl {
 
         public MyStack(int size) {
             arr = new int[size];
-            index = -1;
+            index = 0;
         }
 
         public void add(int n) {
-            ++index;
-            if (index >= arr.length) {
-                System.out.println("Overflow");
-            } else {
-
-                arr[index] = n;
-                top = n;
-            }
+            if (index == arr.length) System.out.println("Overflow");
+            else arr[index++] = n;
         }
 
         public void pop() {
-            if (index <= -1) {
-                System.out.println("Underflow");
-            } else {
-                if (index < arr.length) {
-                    arr[index] = -1;
-                    --index;
-                    top = index >= 0 ? arr[index] : -1;
-                }
-            }
+            if (index - 1 < 0) System.out.println("Underflow");
+            else --index;
         }
 
         public void peek() {
-            if (index == -1) System.out.println("NULL");
-            else System.out.println(top);
+            if (index - 1 < 0) System.out.println("NULL");
+            else System.out.println(arr[index - 1]);
         }
     }
 }
