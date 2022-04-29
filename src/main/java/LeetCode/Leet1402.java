@@ -14,6 +14,7 @@ public class Leet1402 {
             if (sum < temp) sum = temp;
             
         }
+        return 0;
     }
 
     public static void main(String[] args) {
