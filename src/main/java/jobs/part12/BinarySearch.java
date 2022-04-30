@@ -25,6 +25,7 @@ public class BinarySearch {
     private static String recur(int[] narr, int[] qarr, int q, int len) {
         if (narr[len] > qarr[q]) return recur(narr, qarr, q, len - (len / 2));
         else if (narr[len] < qarr[q]) return recur(narr, qarr, q, len + (len / 2));
+        return "";
     }
 
 }
