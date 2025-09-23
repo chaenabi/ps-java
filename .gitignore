@@ -2,3 +2,8 @@
 SolvingBaekJoon.iml
 /target/
 target/
+.class
+/classes/
+classes/
+/test-classes/
+test-classes/
